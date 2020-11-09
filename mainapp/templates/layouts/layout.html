@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <title>
+            {% block title %}
+            {% endblock  %} 
+            | TABLEROS-OCASA 
+        </title>
+       
+         {% load static %}
+        <link rel="icon" type="image/x-icon" href="{% static 'img/ocasa_icono.png' %}"/>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}"/>   
+    </head>
+
+    <body>
+        <header id="header">
+            <img src="{% static 'img/portada.jpg' %}"/>
+        </header>
+
+        <nav id="menu">
+            <ul>
+                {% if user.email %}
+                    <li>
+                        <a href="{% url 'tableros' %}">TABLEROS</a>                
+                    </li>
+                    <li>
+                        <a href="{% url 'logout' %}">LOGOUT</a>                
+                    </li>
+
+                {% else %}
+
+                    <li>
+                        <a href="{% url 'login' %}">LOGIN</a>                
+                    </li>
+                  
+                {% endif %}
+
+            </ul>
+        </nav>
+
+        <div id="content">
+                             
+            {% block content %}
+                <!--Codigo que viene de un Templates-->
+            
+            {% endblock %}
+            
+        </div>
+       
+        <footer id="footer">
+            <p>GERENCIA DE TRANSPORTE Y CORREO &copy; {% now "Y" %}</p>
+            <p>OCASA</p>        
+        </footer>
+    
+    </body>
+</html>

@@ -1,0 +1,25 @@
+{% extends 'layouts/layout.html' %}
+
+{% block title  %}{{title}}{% endblock %}
+
+{% block content%}
+    <section id="content">
+        
+        <h1>TABLERO</h1>
+        <hr/>
+
+        {%if user.email %}
+            <h2>Bienvenid@, {{request.user.first_name}} {{user.last_name}}</h2>
+            <p>
+                Te has identificado con el email {{user.email}}
+            </p>
+        {% endif %}
+
+        <img src="../static/img/portada.jpg" />
+        
+
+
+
+             
+    </section>
+{%endblock%}
